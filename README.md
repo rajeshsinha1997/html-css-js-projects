@@ -4,6 +4,12 @@ A collection of front-end practice projects built using **HTML**, **CSS**, and s
 
 ---
 
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
+---
+
 ## 📁 Project Structure
 
 All projects are stored in the `projects/` directory:

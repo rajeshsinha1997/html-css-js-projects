@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Funnel Sans", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(45deg, #0a0a0a, #3a4452);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.calculator {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  gap: 1rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border: 0.1rem solid white;
+  border-radius: 5%;
+  box-shadow: 0rem 0rem 0.5rem 0.1rem rgb(113, 115, 119, 0.5);
+  background-color: black;
+}
+
+#inputBox {
+  width: 100%;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  font-size: 2rem;
+  text-align: right;
+  background-color: transparent;
+  border: 0.1rem solid white;
+  box-shadow: 0rem 0rem 0.5rem 0.1rem rgb(113, 115, 119, 0.5);
+}
+
+#inputBox::placeholder {
+  color: white;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+button {
+  aspect-ratio: 1/1;
+  font-size: 1.75rem;
+  color: white;
+  cursor: pointer;
+  border: 0.1rem solid white;
+  border-radius: 50%;
+  box-shadow: 0rem 0rem 0.5rem 0.2rem rgb(113, 115, 119, 0.4);
+}
+
+.btnOperator {
+  background-color: rgb(212, 147, 28);
+}
+
+.btnNumber {
+  background-color: rgb(67, 67, 67);
+}
