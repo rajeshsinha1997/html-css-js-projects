@@ -31,7 +31,7 @@ A simple, clean, and stylish calculator built using **HTML**, **CSS**, and **Jav
 ## 📂 Project Structure
 
 ```
-calculator/
+project-1-basic-calculator/
 ├── index.html
 ├── style.css
 └── script.js
