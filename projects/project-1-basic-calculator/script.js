@@ -67,13 +67,40 @@ const setValueToInputBox = (newValue) => {
 
 /**
  * function to perform any pending calculation and store the result
- * as previous operand
+ * as previous operand (safe alternative to eval)
  */
 const performPendingCalculation = () => {
-  // evaluate the result and store as the previous operand
-  previousOperand = eval(
-    previousOperand + operatorToBeUsed + inputBoxElement.value
-  );
+  // convert string inputs to floating point numbers
+  const currentOperand = parseFloat(inputBoxElement.value);
+  const previousValue = parseFloat(previousOperand);
+
+  let result = 0;
+
+  // perform the calculation based on the stored operator
+  switch (operatorToBeUsed) {
+    case "+":
+      result = previousValue + currentOperand;
+      break;
+    case "-":
+      result = previousValue - currentOperand;
+      break;
+    case "*":
+      result = previousValue * currentOperand;
+      break;
+    case "/":
+      // handle divide-by-zero case
+      result = currentOperand === 0 ? "Error" : previousValue / currentOperand;
+      break;
+    case "%":
+      result = previousValue % currentOperand;
+      break;
+    default:
+      // fallback (shouldn't happen)
+      result = currentOperand;
+  }
+
+  // store the result as the new previous operand (as a string)
+  previousOperand = result.toString();
 };
 
 /**
@@ -103,18 +130,23 @@ const setOperator = (operatorValue) => {
 const displayResult = () => {
   // check if any calculation is pending
   if (operatorToBeUsed !== "" && !needToClearScreen) {
-    // perform pending calculation
     performPendingCalculation();
 
     // reset operator
     operatorToBeUsed = "";
   }
 
-  // display result to the input box element
+  // display result or error
   inputBoxElement.value = previousOperand;
 
-  // reset previous operand value
-  previousOperand = "";
+  // if error occurred, prevent further computation
+  if (previousOperand === "Error") {
+    previousOperand = "";
+    needToClearScreen = true;
+  } else {
+    // reset previous operand value
+    previousOperand = "";
+  }
 };
 
 // add event listener to each button for the 'click' event
