@@ -166,35 +166,56 @@ buttonElements.forEach((button) => {
     }
 
     // debug statements
-    console.log(
-      `last button pressed was an operator: ${lastPressedButtonWasOperator}`
-    );
-    console.log(`need to clear screen: ${needToClearScreen}`);
-    console.log(`previous operand: ${previousOperand}`);
-    console.log(`operator to be used: ${operatorToBeUsed}`);
+    // console.log(
+    //   `last button pressed was an operator: ${lastPressedButtonWasOperator}`
+    // );
+    // console.log(`need to clear screen: ${needToClearScreen}`);
+    // console.log(`previous operand: ${previousOperand}`);
+    // console.log(`operator to be used: ${operatorToBeUsed}`);
   });
+});
 
-  // handle keyboard input
-  // document.addEventListener("keydown", (e) => {
-  //   const key = e.key;
-  //   const allowedKeys = "0123456789.+-*/%";
+// handle keyboard inputs
+document.addEventListener("keydown", (e) => {
+  const key = e.key;
 
-  //   // if key is a valid number or operator, input it
-  //   if (allowedKeys.includes(key)) {
-  //     setValueToInputBox(key);
-  //     needToClearScreen = false;
-  //   }
-  //   // handle Enter key for result
-  //   else if (key === "Enter") {
-  //     displayResult();
-  //   }
-  //   // handle Backspace key for deleting last character
-  //   else if (key === "Backspace") {
-  //     deleteLastCharacter();
-  //   }
-  //   // handle Escape key to reset calculator
-  //   else if (key === "Escape") {
-  //     resetCalculator();
-  //   }
-  // });
+  // perform required action depending on the button
+  switch (key) {
+    case "Escape":
+      resetCalculator();
+      lastPressedButtonWasOperator = true;
+      break;
+    case "Backspace":
+      deleteLastCharacter();
+      lastPressedButtonWasOperator = true;
+      break;
+    case ".":
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+      setValueToInputBox(key);
+      lastPressedButtonWasOperator = false;
+      needToClearScreen = false;
+      break;
+    case "%":
+    case "/":
+    case "*":
+    case "-":
+    case "+":
+      setOperator(key);
+      lastPressedButtonWasOperator = true;
+      needToClearScreen = true;
+      break;
+    case "Enter":
+      displayResult();
+      lastPressedButtonWasOperator = true;
+      break;
+  }
 });
