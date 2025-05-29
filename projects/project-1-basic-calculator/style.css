@@ -8,6 +8,10 @@
 }
 
 body {
+  --primary: #3a4452;
+  --secondary: #fff;
+  --accent: #fdd663;
+  --background: #f0f0f0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -58,6 +62,10 @@ button {
   border: 0.1rem solid white;
   border-radius: 50%;
   box-shadow: 0rem 0rem 0.5rem 0.2rem rgb(113, 115, 119, 0.4);
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 .btnOperator {
