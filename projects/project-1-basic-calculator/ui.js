@@ -27,12 +27,16 @@ const deleteLastCharacter = () => {
  */
 const setValueToInputBox = (newValue) => {
   // check if the screen needed to be cleared
-  // or the existing value is '0' or '00'
-  if (
-    Calculator.needToClearScreen ||
-    inputBoxElement.value === "0" ||
-    inputBoxElement.value === "00"
-  ) {
+  if (Calculator.needToClearScreen) {
+    // clear the screen and place the new value on the screen
+    inputBoxElement.value = newValue;
+  } 
+  // handle special case for decimal point when display is "0" or "00"
+  else if (newValue === "." && (inputBoxElement.value === "0" || inputBoxElement.value === "00")) {
+    inputBoxElement.value = "0.";
+  }
+  // check if the existing value is '0' or '00' (but not for decimal point case)
+  else if (inputBoxElement.value === "0" || inputBoxElement.value === "00") {
     // clear the screen and place the new value on the screen
     inputBoxElement.value = newValue;
   } else {
