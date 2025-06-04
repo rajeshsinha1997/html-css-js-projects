@@ -39,7 +39,7 @@ function performPendingCalculation() {
       result = currentOperand;
   }
 
-  previousOperand = (typeof result === 'number') ? result.toFixed(2) : result.toString();
+  previousOperand = (Number.isInteger(result)) ? parseInt(result) : result;
 }
 
 function setOperator(operatorValue) {
@@ -61,11 +61,6 @@ function displayResult() {
     operatorToBeUsed = "";
   }
 
-  inputBoxElement.value = (typeof previousOperand === 'number') ? previousOperand.toFixed(2) : previousOperand;
-
-  if (previousOperand === "Cannot divide by zero") {
-    previousOperand = "";
-  } else {
-    previousOperand = "";
-  }
+  inputBoxElement.value = previousOperand;
+  previousOperand = "";
 }
