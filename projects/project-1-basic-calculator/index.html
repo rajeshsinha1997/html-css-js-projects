@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Calculator</title>
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- calculator body start -->
+    <div class="calculator">
+      <!-- calculator screen start -->
+      <input aria-label="Calculator display" id="inputBox" type="text" placeholder="0" readonly />
+      <!-- calculator screen end -->
+
+      <!-- calculator buttons start -->
+      <div class="button-grid">
+        <button class="btnOperator">AC</button>
+        <button class="btnOperator">DEL</button>
+        <button class="btnOperator">%</button>
+        <button class="btnOperator">/</button>
+
+        <button class="btnNumber">7</button>
+        <button class="btnNumber">8</button>
+        <button class="btnNumber">9</button>
+        <button class="btnOperator">*</button>
+
+        <button class="btnNumber">4</button>
+        <button class="btnNumber">5</button>
+        <button class="btnNumber">6</button>
+        <button class="btnOperator">-</button>
+
+        <button class="btnNumber">1</button>
+        <button class="btnNumber">2</button>
+        <button class="btnNumber">3</button>
+        <button class="btnOperator">+</button>
+
+        <button class="btnNumber">00</button>
+        <button class="btnNumber">0</button>
+        <button class="btnNumber">.</button>
+        <button class="btnOperator">=</button>
+      </div>
+      <!-- calculator buttons start -->
+    </div>
+    <!-- calculator body end -->
+
+    <!-- custom javascript file -->
+    <script src="calculator.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>
